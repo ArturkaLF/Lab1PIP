@@ -1,0 +1,43 @@
+body{
+    background-image: url("back.png");
+    color: rgb(77,154,247);
+    font-size: 16px;
+}
+
+.child {
+    display: inline-block;
+}
+
+
+button{
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    margin-left: 20px;
+    font-size: 16px;
+    background-color: rgb(77,154,247);
+    border-radius: 15px;
+    border: 2px solid black; /* Параметры рамки */
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: white;
+}
+
+table {
+    width: 300px;
+    border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    margin-top: 20px;
+    font-size: 25px;
+    font-family: Helvetica, serif;
+}
+
+td, th {
+    padding: 4px;
+    border: 1px solid skyblue;
+}
+
+th {
+    background: #3E5FE0;
+}
