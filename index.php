@@ -60,7 +60,7 @@
 
 				<br>
 
-				Y:<input type="text" name="y" id="y-value-input" oninput="empty_check()" onkeyup="return valid_letters(this);" placeholder="-5 ... 5" class="y" autocomplete="off"="">
+				Y:<input type="text" name="y" id="y-value-input"  onchange="valid_letters(this)" onkeyup="return valid_letters(this);" placeholder="-5 ... 5" class="y" autocomplete="off"="">
 
 				<br>
 
