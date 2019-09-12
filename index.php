@@ -13,17 +13,14 @@
 		function valid_letters(input) {
    			let value = input.value;
 
-
-            value = value.replace(/[^0-9,.]+/, '');
+            value = value.replace(/[^-0-9,.]+/, '');
             input.value = value;
 
-
-            input.value = document.getElementById('y-value-input').value.replace(/,/, '.');
+            input.value = value.replace(/,/, '.');
     		if (input.value < -5) input.value = -5;
     		if (input.value > 5)  input.value = 5;
 
     		empty_check(input);
-
 		}
 
 		function empty_check() {
@@ -60,7 +57,7 @@
 
 				<br>
 
-				Y:<input type="text" name="y" id="y-value-input"  onchange="valid_letters(this)" onkeyup="return valid_letters(this);" placeholder="-5 ... 5" class="y" autocomplete="off"="">
+				Y:<input type="text" name="y" id="y-value-input" onchange="valid_letters(this)" onkeyup="return valid_letters(this);" placeholder="-5 ... 5" class="y" autocomplete="off"="">
 
 				<br>
 
