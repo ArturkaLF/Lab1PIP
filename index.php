@@ -5,7 +5,7 @@
     <link href="styles2/wave.css" rel="stylesheet">
     <meta charset="utf-8">
 	<title>Лабораторная работа №1.</title>
-	       
+
 </head>
 <body>
 	<script type="text/javascript">
@@ -21,13 +21,22 @@
             input.value = document.getElementById('y-value-input').value.replace(/,/, '.');
     		if (input.value < -5) input.value = -5;
     		if (input.value > 5)  input.value = 5;
-		} 
+
+    		empty_check(input);
+
+		}
+
+		function empty_check() {
+            let but = document.getElementById("button");
+            but.disabled = document.getElementById("y-value-input").value === "";
+        }
 
 	</script>
 
 	<header>
 		<h1>Шайхатаров Артур Ринатович P3212</h1>
 		<h2>Вариант: 212022</h2>
+
 	</header>
 
 	<div>
@@ -51,7 +60,7 @@
 
 				<br>
 
-				Y:<input type="text" name="y" id="y-value-input" onkeyup="return valid_letters(this);" placeholder="-5 ... 5" class="y" autocomplete="off"="">
+				Y:<input type="text" name="y" id="y-value-input" oninput="empty_check()" onkeyup="return valid_letters(this);" placeholder="-5 ... 5" class="y" autocomplete="off"="">
 
 				<br>
 
@@ -66,7 +75,7 @@
 
 				<br>
 
-                <button type="submit" class="button">Отправить<br>данные</button>
+                <button type="submit" id="button" onclick="empty_check()" class="button">Отправить<br>данные</button>
 
 			</form>
 
@@ -83,5 +92,8 @@
         </div>
     </div>
 
+    <script>
+        empty_check();
+    </script>
 </body>
 </html>
