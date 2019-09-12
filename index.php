@@ -10,17 +10,17 @@
 <body>
 	<script type="text/javascript">
 
-		function valid_letters(input) { 
+		function valid_letters(input) {
    			let value = input.value;
-    		let rep = /[\;":'a-zA-Zа-яА-Я]/;
-    		if (rep.test(value)) { 
-       			value = value.replace(rep, ''); 
-        		input.value = value; 
-   			} 
 
-   			input.value = input.value.replace(/,/, '.');
+
+            value = value.replace(/[^0-9,.]+/, '');
+            input.value = value;
+
+
+            input.value = document.getElementById('y-value-input').value.replace(/,/, '.');
     		if (input.value < -5) input.value = -5;
-    		if (input.value > 5) input.value = 5;
+    		if (input.value > 5)  input.value = 5;
 		} 
 
 	</script>
@@ -51,7 +51,7 @@
 
 				<br>
 
-				Y:<input type="text" name="y" onkeyup="return valid_letters(this);" placeholder="-5 ... 5" class="y" autocomplete="off"="">
+				Y:<input type="text" name="y" id="y-value-input" onkeyup="return valid_letters(this);" placeholder="-5 ... 5" class="y" autocomplete="off"="">
 
 				<br>
 
