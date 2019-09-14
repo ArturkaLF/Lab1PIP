@@ -110,7 +110,7 @@
     </div>
 
     <script>
-        empty_check();
+        empty_and_mines_check();
 
     </script>
 </body>
