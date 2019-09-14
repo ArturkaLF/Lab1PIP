@@ -26,18 +26,18 @@
             if (input.value > 5)  input.value = 5;
 
 
-            empty_check(input);
+            empty_and_mines_check(input);
 		}
 
-		function empty_check() {
+		function empty_and_mines_check() {
             const but = document.getElementById("button");
-            but.disabled = document.getElementById("y-value-input").value === "";
+            but.disabled = ((document.getElementById("y-value-input").value === "") || (document.getElementById("y-value-input").value === "-"))
         }
 
 
         function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
 
-        function check_num(element) {
+        function check_length(element) {
 
             const max_chars = 8;
 
@@ -77,7 +77,7 @@
 
 				<br>
 
-				Y:<input type="text" name="y" id="y-value-input" onkeyup="return valid_letters(this)" onkeydown="check_num(this);" placeholder="-5 ... 5" class="y" autocomplete="off"="">
+				Y:<input type="text" name="y" id="y-value-input" oninput="return valid_letters(this)" onkeydown="check_length(this);" placeholder="-5 ... 5" class="y" autocomplete="off"="">
 
 				<br>
 
