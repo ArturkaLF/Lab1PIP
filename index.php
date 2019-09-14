@@ -11,24 +11,44 @@
 	<script type="text/javascript">
 
 		function valid_letters(input) {
-   			let value = input.value;
 
-            value = value.replace(/[^-0-9,.]+/, '');
+            let value = input.value;
+
+            input.value = input.value.replace(/[^-0-9,.]/g,'');
+
             input.value = value;
 
             input.value = value.replace(/,/, '.');
-    		if (input.value < -5) input.value = -5;
-    		if (input.value > 5)  input.value = 5;
 
-    		empty_check(input);
+            if (!isNumber(input.value) && input.value !== "-") input.value ='';
+
+            if (input.value < -5) input.value = -5;
+            if (input.value > 5)  input.value = 5;
+
+
+            empty_check(input);
 		}
 
 		function empty_check() {
-            let but = document.getElementById("button");
+            const but = document.getElementById("button");
             but.disabled = document.getElementById("y-value-input").value === "";
         }
 
-	</script>
+
+        function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
+
+        function check_num(element) {
+
+            const max_chars = 8;
+
+            if(element.value.length > max_chars) {
+                element.value = element.value.substr(0, max_chars);
+            }
+
+        }
+
+
+    </script>
 
 	<header>
 		<h1>Шайхатаров Артур Ринатович P3212</h1>
@@ -57,7 +77,7 @@
 
 				<br>
 
-				Y:<input type="text" name="y" id="y-value-input" onchange="valid_letters(this)" onkeyup="return valid_letters(this);" placeholder="-5 ... 5" class="y" autocomplete="off"="">
+				Y:<input type="text" name="y" id="y-value-input" onkeyup="return valid_letters(this)" onkeydown="check_num(this);" placeholder="-5 ... 5" class="y" autocomplete="off"="">
 
 				<br>
 
@@ -91,6 +111,7 @@
 
     <script>
         empty_check();
+
     </script>
 </body>
 </html>
